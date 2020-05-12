@@ -24,7 +24,7 @@
                 "Swvjeff\\Analytics\\AnalyticsServiceProvider"
             ],
             "aliases": {
-                "Analytics": "Spatie\\Analytics\\AnalyticsFacade"
+                "Analytics": "Swvjeff\\Analytics\\AnalyticsFacade"
             }
         }
     },

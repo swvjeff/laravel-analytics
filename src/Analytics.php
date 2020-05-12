@@ -2,14 +2,11 @@
 
 namespace Swvjeff\Analytics;
 
-use Illuminate\Support\Collection;
-use Illuminate\Support\Traits\Macroable;
-
 class Analytics
 {
     private $primaryTrackingId;
 
-    private $secondaryTrackingIds = [];
+    private $secondaryTrackingIds;
 
     public function __construct($primaryTrackingId, $secondaryTrackingIds)
     {
@@ -19,7 +16,7 @@ class Analytics
 
     public function addTrackingId($trackingId)
     {
-        if($trackingId !== $this->primaryTrackingId && ! in_array($trackingId, $this->secondaryTrackingIds)) {
+        if( ! empty($trackingId) && $trackingId !== $this->primaryTrackingId && ! in_array($trackingId, $this->secondaryTrackingIds, true)) {
             $this->secondaryTrackingIds[] = $trackingId;
         }
         return $this;
@@ -27,6 +24,8 @@ class Analytics
 
     public function render()
     {
-        return view('laravel-analytics::analytics')->with('trackingId', $this->primaryTrackingId)->with('secondaryTrackingIds', $this->secondaryTrackingIds);
+        if( ! empty($this->primaryTrackingId)) {
+            return view('laravel-analytics::analytics')->with('trackingId', $this->primaryTrackingId)->with('secondaryTrackingIds', $this->secondaryTrackingIds);
+        }
     }
 }

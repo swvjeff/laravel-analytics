@@ -1,6 +1,33 @@
 {
     "name": "swvjeff/laravel-analytics",
     "description": "A simple package that allows you to define multiple Google Analytics tracking IDs for your website",
+    "authors": [
+        {
+            "name": "Jeff Smith",
+            "email": "jeff@selectwv.com",
+            "homepage": "https://www.selectwv.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "laravel/framework": "^5.8.0|^6.0|^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Swvjeff\\Analytics\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Swvjeff\\Analytics\\AnalyticsServiceProvider"
+            ],
+            "aliases": {
+                "Analytics": "Spatie\\Analytics\\AnalyticsFacade"
+            }
+        }
+    },
     "minimum-stability": "dev",
-    "require": {}
+    "prefer-stable": true
 }

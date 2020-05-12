@@ -1,0 +1,6 @@
+{
+    "name": "swvjeff/laravel-analytics",
+    "description": "A simple package that allows you to define multiple Google Analytics tracking IDs for your website",
+    "minimum-stability": "dev",
+    "require": {}
+}
